@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"watchify app.js -o public/js/bundle.js -v",
-    "build":"npm run browserify",
-    "start":"npm run watch & nodemon server.js",
-    "browserify":"browserify app.js | uglifyjs > public/js/bundle.js",
+    "watch": "watchify app.js -o public/js/bundle.js -v",
+    "browserify": "browserify app.js | uglifyjs > public/js/bundle.js",
+    "build": "npm run browserify ",
+    "start": "npm install"
   },
   "repository": {
     "type": "git",
