@@ -9,3 +9,11 @@ var streamHandler = require('./utils/streamHandler');
 
 var app = express();
 var port = process.env.PORT || 3000;
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+app.disable('etag');
+
+
+//connect to mongodb
+mongoose.connect('mongodb://localhost/react-tweets');
