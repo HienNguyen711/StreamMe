@@ -17,3 +17,14 @@ app.disable('etag');
 
 //connect to mongodb
 mongoose.connect('mongodb://localhost/react-tweets');
+
+//create new ntweeter instance
+var twit = new twitter(config.twitter);
+
+//create route
+app.get('/',routes.index);
+
+app.get('/page/:page/:skip',routes.page);
+
+
+app.use('/',express.static(__dirname+'/public/'));
