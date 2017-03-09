@@ -28,3 +28,16 @@ app.get('/page/:page/:skip',routes.page);
 
 
 app.use('/',express.static(__dirname+'/public/'));
+
+//
+var server = http.createServer(app).listen(port,function(){
+  console.log('Listening on port '+port);
+});
+//init socket
+var io = require('socket.io').listen(server);
+
+//set a stream listener for tweets matching tracking keywords
+twit.stream('statuses/filter',{track:'reactjs,#reactjs'},function(stream){
+  streamHandler(stream,io);//streamHandle
+});
+
